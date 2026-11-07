@@ -1,0 +1,708 @@
+/* ----------------------------------- */
+/* REINICIO BÁSICO DE ESTILOS */
+/* ----------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+/* ----------------------------------- */
+/* VARIABLES DE COLOR (Tierra y Canto) */
+/* ----------------------------------- */
+
+:root {
+    --color-principal-pastel: #f8a11f;
+    --color-principal-oscuro: #faa75a;
+    --color-fondo-suave: lightgray;
+    --color-fondo-blanco: white;
+    --color-texto-principal: black;
+    --color-titulo-oscuro: blue;
+    --sombra-suave: 0 4px 8px darkgray;
+    --sombra-media: 0 6px 12px darkgray;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL ENCABEZADO (HEADER) */
+/* ----------------------------------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--color-principal-pastel);
+    color: white;
+    box-shadow: 0 2px 4px darkgray;
+}
+
+.logo{
+    display: flex;
+  align-items: center; /* Centra verticalmente el icono y el texto */
+  gap: 15px; /* Espacio armónico entre el icono y el texto */
+}
+
+.logo-circle {
+  width: 65px;  /* Ajusta el tamaño del círculo según prefieras */
+  height: 65px; /* Debe ser igual al ancho para que sea un círculo perfecto */
+  background-color: #ffffff; /* Fondo blanco para la imagen */
+  border-radius: 50%; /* Vuelve el contenedor totalmente circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opcional: una ligera sombra para darle profundidad */
+  overflow: hidden; /* Asegura que la imagen no se salga de los bordes circulares */
+}
+
+.logo-img {
+  height: 80px; /* Ajusta la altura del logo según necesites */
+  width: auto;  /* Mantiene la proporción original de la imagen */
+  object-fit: contain;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* ================================================= */
+/* ESTILO DE BANNER PRINCIPAL */
+/* ================================================= */
+
+.banner-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    margin: 0;
+    background: #f67246 url('../images/Fondo-banner.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.50);
+    z-index: 1;
+}
+
+/* ================================================= */
+/* ESTILOS DEL CONTENIDO (Centrado y Texto) */
+/* ================================================= */
+
+.contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    max-width: 90%;
+}
+
+.contenido h1, .contenido p {
+    color: white;
+    text-shadow: 1px 1px 4px darkgray;
+    margin: 0 auto 15px auto;
+}
+
+.contenido h1 {
+    font-size: 3em;
+}
+
+.slogan-texto {
+    font-style: italic;
+    color: orange;
+    border-bottom: 1px solid orange;
+    padding-bottom: 5px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px darkgray;
+}
+
+.cta-button:hover {
+    background-color: orange;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL MENÚ PRINCIPAL (NAV) */
+/* ----------------------------------- */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    background-color: coral;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL MENÚ DESPLEGABLE (DROPDOWN) */
+/* ----------------------------------- */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-fondo-blanco);
+    min-width: 160px;
+    box-shadow: var(--sombra-media);
+    z-index: 10;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: var(--color-texto-principal) !important;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: var(--color-fondo-blanco);
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--color-fondo-suave);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: coral;
+}
+
+/* ----------------------------------- */
+/* ESTILO PARA EL SLOGAN */
+/* ----------------------------------- */
+
+.hero .slogan-texto {
+    font-size: 1.25em;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--color-titulo-oscuro);
+    margin-top: -10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--color-principal-pastel);
+    padding-bottom: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL BOTÓN (CALL TO ACTION) */
+/* ----------------------------------- */
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--color-principal-pastel);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--sombra-suave);
+}
+
+.cta-button:hover {
+    background-color: cadetblue;
+    box-shadow: var(--sombra-media);
+}
+
+/* ----------------------------------- */
+/* ESTILOS GENERALES DE SECCIÓN */
+/* ----------------------------------- */
+
+.content-section {
+    padding: 80px 50px;
+    text-align: center;
+    min-height: 500px;
+    margin: 30px 0;
+    background-color: var(--color-fondo-blanco);
+    box-shadow: var(--sombra-suave);
+    border-radius: 10px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grey-background {
+    background-color: var(--color-fondo-suave);
+}
+
+.content-section h2 {
+    font-size: 2.5em;
+    color: var(--color-titulo-oscuro);
+    margin-bottom: 30px;
+}
+
+/* ----------------------------------- */
+/* ESTILOS ESPECÍFICOS DE MISIÓN Y VISIÓN */
+/* ----------------------------------- */
+
+.mision-vision-contenido {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#mision-vision h3, .mision-vision-contenido p {
+    text-align: center;
+}
+
+#mision-vision h3 {
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+#mision-vision .mision-vision-contenido h3:first-child {
+    margin-top: 0;
+}
+
+.contact-form {
+    max-width: 500px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Campos unificados (inputs de texto, email y textarea) */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-shadow: inset 0 1px 3px darkgray;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Estados de foco unificados para inputs y textarea */
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-principal-pastel);
+    box-shadow: 0 0 5px cadetblue;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Botón de envío */
+.contact-form button[type="submit"] {
+    padding: 15px 25px;
+    background-color: var(--color-principal-pastel);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--sombra-suave);
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: cadetblue;
+    box-shadow: var(--sombra-media);
+}
+
+
+/* ==========================================
+   2. ESTILOS DE LOS ICONOS DE REDES SOCIALES
+   ========================================== */
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Mayor separación para que sean fáciles de presionar con el dedo */
+    margin-top: 20px;
+}
+
+.contenedor {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;  /* Tamaño cómodo para teléfonos */
+    height: 65px; /* Tamaño cómodo para teléfonos */
+    transition: transform 0.3s ease;
+    display: inline-block !important;
+    width: 75px !important;  /* Forzamos un tamaño más grande y cómodo */
+    height: 75px !important;
+}
+
+.contenedor:hover {
+    transform: scale(1.1);
+}
+
+.social-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL PIE DE PÁGINA (FOOTER) */
+/* ----------------------------------- */
+
+footer {
+    background-color: var(--color-principal-oscuro);
+    color: white;
+    padding: 30px 50px;
+    font-size: 0.85em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-principal-pastel);
+}
+
+/* ----------------------------------- */
+/* ESTILOS ESPECÍFICOS DE LA GALERÍA */
+/* ----------------------------------- */
+
+#galeria {
+    position: relative;
+    max-width: 1340px; /* Aumentado para dar espacio a los botones con el nuevo ancho */
+    margin: 0 auto;
+}
+
+.g-sub {
+    color: var(--color-texto-principal);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.galeria-grid {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 6px 10px;
+    scroll-snap-type: x mandatory;
+    position: relative;
+    max-width: 1200px; /* <-- AQUÍ CAMBIAS EL ANCHO: Pon el valor que prefieras (ej. 1200px, 1400px o 100%) */
+    margin: 0 auto;
+}
+
+.g-item {
+    display: block;
+    overflow: visible;
+    border-radius: 12px;
+    box-shadow: var(--sombra-media);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 3px solid var(--color-principal-pastel);
+    flex: 0 0 calc(33.333% - 12px); /* Mantiene exactamente 3 elementos visibles */
+    scroll-snap-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.g-item img {
+    width: 100%;
+    height: 250px; /* Puedes aumentar la altura aquí si también quieres las imágenes más altas (ej. 300px) */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+    border-radius: 12px;
+}
+
+.galeria-grid::-webkit-scrollbar {
+    height: 8px; 
+    display: none;
+}
+
+.galeria-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.g-item .g-prev, .g-item .g-next {
+    display: none;
+}
+
+/* --- BOTONES DE NAVEGACIÓN GLOBAL --- */
+.g-prev-global, .g-next-global {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-principal-pastel);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 26px;
+    box-shadow: var(--sombra-media);
+    cursor: pointer;
+    z-index: 20;
+    transition: background-color 0.25s;
+}
+
+.g-prev-global:hover, .g-next-global:hover { 
+    background-color: var(--color-principal-oscuro);
+}
+
+.g-item:hover {
+    transform: translateY(-6px) scale(1.00);
+    box-shadow: 0 24px 60px darkgray;
+}
+
+.g-item:hover img {
+    transform: scale(1.00);
+}
+
+/* Ubicación correcta de los botones dentro de la sección #galeria */
+.g-prev-global {
+    left: 0px;
+}
+
+.g-next-global {
+    right: 0px;
+}
+
+/* ----------------------------------- */
+/* MEDIA QUERIES DEFINITIVOS Y CORREGIDOS */
+/* ----------------------------------- */
+
+/* Tablets medianas y pantallas intermedias (hasta 900px) */
+@media (max-width: 900px) {
+    .g-item {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+/* Tablets pequeñas y móviles grandes (hasta 768px) */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    header, 
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero .eslogan {
+        font-size: 1.25em;
+        padding: 0 10px 10px 10px;
+    }
+    
+    .nav-links {
+        margin-top: 10px;
+    }
+    
+    .nav-links li {
+        padding: 5px 0;
+    }
+    
+    .footer-content {
+        gap: 15px;
+    }
+    
+    /* 1. CAJAS / SECCIONES */
+    .content-section {
+        padding: 25px 15px !important;
+        margin: 20px auto !important;
+        width: 92% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: unset !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        overflow: hidden !important; /* Mantiene todo limpio dentro de la tarjeta */
+    }
+
+    .socials {
+        gap: 15px;
+    }
+
+    .contenedor {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* 2. CARRUSEL Y GALERÍA */
+    .galeria-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+    }
+
+    .g-item {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        flex-shrink: 0 !important;
+        position: relative !important;
+    }
+
+    .g-item img {
+        width: 100% !important;
+        height: 260px !important;
+        object-fit: contain !important; /* Muestra la imagen completa sin recortarla */
+        border-radius: 8px !important;
+        display: block !important;
+        background: #000; /* Fondo opcional por si la imagen es vertical */
+    }
+
+    /* 3. FLECHAS: Ubicadas de forma segura dentro de la tarjeta para que no las corte el celular */
+    .g-prev-global, 
+    .g-next-global {
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 16px !important;
+        z-index: 999 !important;
+        cursor: pointer !important;
+        background-color: rgba(255, 152, 0, 0.9) !important; /* Color visible */
+        color: #fff !important;
+        border-radius: 50% !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .g-prev-global { 
+        left: 10px !important; /* Seguras dentro del margen izquierdo */
+    }
+    
+    .g-next-global { 
+        right: 10px !important; /* Seguras dentro del margen derecho */
+    }
+
+    /* 4. MAPA: Ordenado en el flujo natural para que no pise el texto de arriba */
+    .mapa {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 240px !important;
+        margin: 15px 0 0 0 !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        border-radius: 8px !important;
+        display: block !important;
+        clear: both !important;
+    }
+    
+    .mapa iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border: 0 !important;
+        display: block !important;
+    }
+}
+
+/* Teléfonos móviles pequeños (hasta 520px) */
+@media (max-width: 520px) {
+    .content-section {
+        padding: 15px 10px !important;
+        width: 95% !important;
+    }
+
+    .g-item img {
+        height: 220px !important;
+    }
+    
+    .mapa {
+        height: 210px !important;
+    }
+
+    .g-prev-global, 
+    .g-next-global {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 14px !important;
+    }
+    
+    .g-prev-global {
+        left: 8px !important;
+    }
+    
+    .g-next-global {
+        right: 8px !important;
+    }
+}
+
+/* Pantallas grandes / Escritorio (a partir de 768px) */
+@media (min-width: 768px) {
+    .contenedor {
+        width: 75px;
+        height: 75px;
+    }
+}
