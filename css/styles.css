@@ -529,59 +529,105 @@ footer {
 }
 
 /* ----------------------------------- */
-/* MEDIA QUERIES DEFINITIVOS Y CORREGIDOS */
+/* MEDIA QUERIES CORREGIDOS (MÓVIL)    */
 /* ----------------------------------- */
 
-/* Tablets medianas y pantallas intermedias (hasta 900px) */
+/* Escritorio (a partir de 769px: ya no se cruza con el de 768px) */
+@media (min-width: 769px) {
+    .contenedor {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+/* Tablets medianas (hasta 900px) */
 @media (max-width: 900px) {
     .g-item {
         flex: 0 0 calc(50% - 10px);
     }
 }
 
-/* Tablets pequeñas y móviles grandes (hasta 768px) */
+/* Tablets pequeñas y móviles (hasta 768px) */
 @media (max-width: 768px) {
+
+    html,
     body {
+        width: 100%;
+        max-width: 100%;
         overflow-x: hidden;
+        margin: 0;
     }
 
-    header, 
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
+    *, *::before, *::after {
+        box-sizing: border-box;
     }
-    
+
+    img, iframe {
+        max-width: 100%;
+    }
+
+    /* ---------- NAVBAR (ancho completo) ---------- */
+    header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10px 15px !important;
+        text-align: center;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    nav {
+        width: 100% !important;
+    }
+
+    .nav-links {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 10px 0 0 0 !important;
+        padding: 0 !important;
+        gap: 6px 18px;
+        list-style: none;
+    }
+
+    .nav-links li {
+        padding: 5px 0;
+    }
+
     .hero .eslogan {
         font-size: 1.25em;
         padding: 0 10px 10px 10px;
     }
-    
-    .nav-links {
-        margin-top: 10px;
-    }
-    
-    .nav-links li {
-        padding: 5px 0;
-    }
-    
-    .footer-content {
-        gap: 15px;
-    }
-    
-    /* 1. CAJAS / SECCIONES */
-    .content-section {
-        padding: 25px 15px !important;
-        margin: 20px auto !important;
-        width: 92% !important;
+
+    /* ---------- FOOTER (ancho completo) ---------- */
+    footer {
+        width: 100% !important;
         max-width: 100% !important;
-        height: auto !important;
-        min-height: unset !important;
-        box-sizing: border-box !important;
-        position: relative !important;
-        overflow: hidden !important; /* Mantiene todo limpio dentro de la tarjeta */
+        margin: 0 !important;
+        padding: 20px 15px !important;
+    }
+
+    .footer-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        gap: 15px;
+        text-align: center;
     }
 
     .socials {
+        justify-content: center;
         gap: 15px;
     }
 
@@ -590,119 +636,147 @@ footer {
         height: 38px;
     }
 
-    /* 2. CARRUSEL Y GALERÍA */
+    /* ---------- CAJAS / SECCIONES ---------- */
+    .content-section {
+        width: 92% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: unset !important;
+        margin: 20px auto !important;
+        padding: 25px 15px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        overflow: clip !important; /* igual que hidden, pero el navegador no puede desplazarla con el JS/anclas */
+        /* Se quitó position: relative: las flechas ya no dependen de la sección */
+    }
+
+    /* ---------- CARRUSEL / GALERÍA ---------- */
+    /* Las flechas se posicionan respecto a la sección #galeria (no hace falta wrapper).
+       Se calcula desde ABAJO de la sección: padding inferior + la mitad de la foto.
+       Si cambias el alto de la foto o el padding, cambia solo estas 2 variables. */
+    #galeria {
+        --img-h: 260px;          /* mismo valor que .g-item img { height } */
+        --sec-pad-bottom: 25px;  /* mismo valor que el padding inferior de .content-section */
+        position: relative !important;
+    }
+
+    /* Si en tu HTML dejaste el <div class="galeria-wrapper">, no debe ser el padre de las flechas */
+    .galeria-wrapper {
+        position: static !important;
+    }
+
+    .galeria-grid {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Flechas internas de cada slide: en móvil se usan solo las globales */
+    .g-item .g-prev,
+    .g-item .g-next {
+        display: none !important;
+    }
+
     .galeria-grid {
         display: flex !important;
         flex-wrap: nowrap !important;
         overflow: hidden !important;
-        width: 100% !important;
-        max-width: 100% !important;
         padding: 0 !important;
         box-sizing: border-box !important;
-        position: relative !important;
     }
 
     .g-item {
         flex: 0 0 100% !important;
         width: 100% !important;
-        box-sizing: border-box !important;
         flex-shrink: 0 !important;
         position: relative !important;
+        box-sizing: border-box !important;
     }
 
     .g-item img {
+        display: block !important;
         width: 100% !important;
         height: 260px !important;
-        object-fit: contain !important; /* Muestra la imagen completa sin recortarla */
+        object-fit: contain !important;
         border-radius: 8px !important;
-        display: block !important;
-        background: #000; /* Fondo opcional por si la imagen es vertical */
+        background: #000;
     }
 
-    /* 3. FLECHAS: Ubicadas de forma segura dentro de la tarjeta para que no las corte el celular */
-    .g-prev-global, 
+    /* ---------- FLECHAS: centradas verticalmente sobre las fotos ---------- */
+    .g-prev-global,
     .g-next-global {
         position: absolute !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
+        /* centro de la foto = padding inferior + (alto foto + 6px de borde) / 2, contado desde abajo */
+        top: auto !important;
+        bottom: calc(var(--sec-pad-bottom) + (var(--img-h) + 6px) / 2) !important;
+        transform: translateY(50%) !important;
+        margin: 0 !important;
+        padding: 0 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         width: 36px !important;
         height: 36px !important;
         font-size: 16px !important;
+        line-height: 1 !important;
         z-index: 999 !important;
         cursor: pointer !important;
-        background-color: rgba(255, 152, 0, 0.9) !important; /* Color visible */
+        background-color: rgba(255, 152, 0, 0.9) !important;
         color: #fff !important;
         border-radius: 50% !important;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
 
-    .g-prev-global { 
-        left: 10px !important; /* Seguras dentro del margen izquierdo */
-    }
-    
-    .g-next-global { 
-        right: 10px !important; /* Seguras dentro del margen derecho */
-    }
+    .g-prev-global { left: 10px !important;  right: auto !important; }
+    .g-next-global { right: 10px !important; left: auto !important; }
 
-    /* 4. MAPA: Ordenado en el flujo natural para que no pise el texto de arriba */
+    /* ---------- MAPA ---------- */
     .mapa {
+        display: block !important;
         width: 100% !important;
         max-width: 100% !important;
         height: 240px !important;
         margin: 15px 0 0 0 !important;
         overflow: hidden !important;
-        box-sizing: border-box !important;
         border-radius: 8px !important;
-        display: block !important;
         clear: both !important;
     }
-    
+
     .mapa iframe {
+        display: block !important;
         width: 100% !important;
         height: 100% !important;
         border: 0 !important;
-        display: block !important;
     }
 }
 
-/* Teléfonos móviles pequeños (hasta 520px) */
+/* Móviles pequeños (hasta 520px) */
 @media (max-width: 520px) {
     .content-section {
-        padding: 15px 10px !important;
         width: 95% !important;
+        padding: 15px 10px !important;
+    }
+
+    #galeria {
+        --img-h: 220px;
+        --sec-pad-bottom: 15px;
     }
 
     .g-item img {
         height: 220px !important;
     }
-    
+
     .mapa {
         height: 210px !important;
     }
 
-    .g-prev-global, 
+    .g-prev-global,
     .g-next-global {
         width: 32px !important;
         height: 32px !important;
         font-size: 14px !important;
     }
-    
-    .g-prev-global {
-        left: 8px !important;
-    }
-    
-    .g-next-global {
-        right: 8px !important;
-    }
-}
 
-/* Pantallas grandes / Escritorio (a partir de 768px) */
-@media (min-width: 768px) {
-    .contenedor {
-        width: 75px;
-        height: 75px;
-    }
+    .g-prev-global { left: 8px !important; }
+    .g-next-global { right: 8px !important; }
 }
